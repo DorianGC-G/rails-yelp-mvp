@@ -1,0 +1,18 @@
+<div class='container'>
+  <div class="row justify-content-center">
+    <div class="row col-12 col-md-8 col-lg-6 pt-3" id="restaurant_card">
+      <h2><%= @restaurant.name %></h2>
+      <p><%= @restaurant.category %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.address %></p>
+
+      <%= link_to "Create new review", new_restaurant_review_path(@restaurant) %>
+      <span><%= link_to "Back to list", restaurants_path %></span>
+      <ul class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item"><%= review.content %> | <%= review.rating %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
